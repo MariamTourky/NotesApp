@@ -4,11 +4,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.hint,  this.maxLines = 1,this.onSaved});
+  const CustomTextField({super.key, required this.hint,  this.maxLines = 1,this.onSaved,this.onChange});
 
   final String hint;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChange;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -19,6 +21,7 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
+      onChanged: onChange,
       onSaved:onSaved ,
       cursorColor: kPrimaryColor,
       maxLines: maxLines,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import '../models/NoteModel.dart';
 import '../widgets/EditNoteViewBody.dart';
 
 class EditNoteView extends StatelessWidget {
-  const EditNoteView({Key? key}) : super(key: key);
-  static String routeName='/edit_note_view';
+  final NoteModel noteModel;
+  const EditNoteView({Key? key, required this.noteModel}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class EditNoteView extends StatelessWidget {
           onPressed:() {Navigator.pop(context);},
         ),
       ),
-      body: EditNoteViewBody(),
+      body: EditNoteViewBody(noteModel: noteModel,),
     );
   }
 }
